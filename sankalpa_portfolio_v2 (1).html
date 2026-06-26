@@ -1,0 +1,621 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+--ink:#0A0F1E;
+--ink2:#1E2640;
+--mid:#4B5675;
+--muted:#8892AA;
+--border:#E4E8F0;
+--bg:#F7F8FC;
+--card:#FFFFFF;
+--blue:#2563EB;
+--blue-soft:#EEF3FF;
+--blue-text:#1D4ED8;
+--green:#059669;
+--green-soft:#ECFDF5;
+}
+body{font-family:'Inter',sans-serif;background:#F7F8FC;color:var(--ink);font-size:14px;line-height:1.65}
+
+nav{background:#fff;border-bottom:1px solid var(--border);padding:0 32px}
+.nav-i{max-width:1120px;margin:0 auto;height:56px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-family:'Playfair Display',serif;font-size:17px;color:var(--ink);font-weight:700;letter-spacing:-0.3px}
+.nav-r{display:flex;align-items:center;gap:6px}
+.nav-link{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .15s}
+.nav-link:hover{background:var(--bg);color:var(--ink)}
+.nav-cta{background:var(--blue);color:#fff;font-size:12px;font-weight:600;padding:7px 16px;border-radius:8px;text-decoration:none;margin-left:8px}
+
+/* HERO — full split layout */
+.hero{background:#fff;border-bottom:1px solid var(--border);padding:0 32px}
+.hero-i{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:0;min-height:500px}
+.hero-left{padding:72px 64px 72px 0;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
+.hero-right{padding:48px 0 48px 48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px}
+
+.status-pill{display:inline-flex;align-items:center;gap:6px;background:var(--green-soft);color:var(--green);font-size:11px;font-weight:600;letter-spacing:.06em;padding:5px 12px;border-radius:100px;margin-bottom:20px;width:fit-content}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.hero-name{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;line-height:1.05;color:var(--ink);letter-spacing:-1.5px;margin-bottom:6px}
+.hero-title{font-size:16px;font-weight:500;color:var(--blue);margin-bottom:18px;letter-spacing:.01em}
+.hero-desc{font-size:15px;color:var(--mid);line-height:1.8;max-width:480px;margin-bottom:32px}
+.hero-socials{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.social-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:8px;border:1px solid var(--border);background:#fff;color:var(--mid);font-size:12px;font-weight:500;text-decoration:none;transition:all .15s}
+.social-btn:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.social-btn svg{width:15px;height:15px;flex-shrink:0}
+.hero-stats{display:flex;gap:24px}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--ink);line-height:1}
+.stat-label{font-size:11px;color:var(--muted);font-weight:500;letter-spacing:.03em}
+
+/* PHOTO CARD */
+.photo-frame{width:200px;height:200px;border-radius:20px;background:linear-gradient(135deg,#1E2640 0%,#2563EB 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0}
+.photo-initials{font-family:'Playfair Display',serif;font-size:56px;font-weight:700;color:rgba(255,255,255,0.9);letter-spacing:-2px}
+.photo-label{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:10px;font-weight:500;color:rgba(255,255,255,0.5);letter-spacing:.08em}
+.photo-note{font-size:11px;color:var(--muted);text-align:center;max-width:180px;line-height:1.5}
+
+.info-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:16px;width:100%;max-width:260px}
+.info-row{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:12px;color:var(--mid)}
+.info-row:not(:last-child){border-bottom:1px solid var(--border)}
+.info-row svg{width:14px;height:14px;color:var(--blue);flex-shrink:0}
+.info-val{color:var(--ink);font-weight:500}
+
+/* SECTIONS */
+.section{padding:72px 32px}
+.section.alt{background:#fff}
+.wrap{max-width:1120px;margin:0 auto}
+.s-eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.s-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--ink);letter-spacing:-0.8px;margin-bottom:6px}
+.s-desc{font-size:14px;color:var(--muted);margin-bottom:44px;max-width:500px;line-height:1.7}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.cols3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+
+/* ABOUT */
+.about-wrap{display:grid;grid-template-columns:3fr 2fr;gap:48px;align-items:start}
+.about-text h3{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:10px;letter-spacing:.02em}
+.about-text p{font-size:14px;color:var(--mid);line-height:1.85;margin-bottom:24px}
+.philosophy-block{background:var(--blue-soft);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:18px 20px;margin-top:4px}
+.philosophy-block p{color:var(--blue-text);font-size:13px;font-style:italic;line-height:1.75;margin:0}
+.expertise-wrap h3{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:14px}
+.exp-tags{display:flex;flex-wrap:wrap;gap:7px}
+.etag{padding:5px 11px;border-radius:100px;font-size:11px;font-weight:500;background:var(--bg);color:var(--mid);border:1px solid var(--border)}
+
+/* EXPERIENCE */
+.exp-timeline{display:flex;flex-direction:column;gap:0}
+.exp-item{display:grid;grid-template-columns:160px 1fr;gap:0}
+.exp-left{padding:0 32px 0 0;text-align:right;padding-top:4px}
+.exp-period-text{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.04em;line-height:1.5}
+.exp-org-text{font-size:11px;color:var(--blue);font-weight:500;margin-top:4px}
+.exp-right{border-left:2px solid var(--border);padding:0 0 40px 32px;position:relative}
+.exp-dot{position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--blue);border:2px solid #fff;box-shadow:0 0 0 2px var(--blue)}
+.exp-role-title{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.exp-blist{list-style:none;display:flex;flex-direction:column;gap:6px}
+.exp-blist li{font-size:13px;color:var(--mid);padding-left:16px;position:relative;line-height:1.7}
+.exp-blist li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--blue)}
+
+/* PROJECTS */
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:16px;transition:box-shadow .2s}
+.proj-card:hover{box-shadow:0 4px 24px rgba(37,99,235,.08)}
+.proj-badge-row{display:flex;gap:6px;flex-wrap:wrap}
+.pbadge{padding:3px 9px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:.05em;background:var(--blue-soft);color:var(--blue-text)}
+.proj-card h3{font-size:15px;font-weight:700;color:var(--ink)}
+.proj-divider{height:1px;background:var(--border)}
+.proj-field{display:flex;flex-direction:column;gap:2px}
+.pf-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pf-val{font-size:12px;color:var(--mid);line-height:1.6}
+
+/* SKILLS */
+.skill-group{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px}
+.sg-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.sg-icon{width:32px;height:32px;border-radius:8px;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:16px}
+.sg-title{font-size:13px;font-weight:700;color:var(--ink)}
+.sk-items{display:flex;flex-direction:column;gap:10px}
+.sk-item{}
+.sk-top{display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px}
+.sk-name{color:var(--mid);font-weight:500}
+.sk-pct{color:var(--blue);font-weight:600}
+.sk-bar{height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.sk-fill{height:100%;border-radius:2px;background:var(--blue)}
+
+/* LEADERSHIP */
+.lead-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.lc-icon-wrap{width:40px;height:40px;border-radius:10px;background:var(--blue-soft);display:flex;align-items:center;justify-content:center}
+.lc-icon{font-size:20px}
+.lc-title{font-size:14px;font-weight:700;color:var(--ink)}
+.lc-desc{font-size:12px;color:var(--mid);line-height:1.7}
+
+/* EDUCATION */
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;display:flex;gap:16px;align-items:flex-start}
+.edu-icon{width:44px;height:44px;border-radius:10px;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.edu-deg{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.edu-uni{font-size:12px;color:var(--blue);font-weight:600;margin-bottom:3px}
+.edu-year{font-size:11px;color:var(--muted)}
+
+/* SOCIAL MEDIA SECTION */
+.social-section-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.soc-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;text-decoration:none;transition:all .15s;cursor:pointer}
+.soc-card:hover{border-color:var(--blue);box-shadow:0 4px 20px rgba(37,99,235,.10)}
+.soc-icon-wrap{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px}
+.soc-platform{font-size:13px;font-weight:700;color:var(--ink)}
+.soc-handle{font-size:11px;color:var(--muted)}
+.soc-action{font-size:11px;font-weight:600;color:var(--blue);margin-top:4px}
+
+/* CERTS & LANGS */
+.cert-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:14px}
+.cert-badge{width:36px;height:36px;border-radius:8px;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:18px;flex-shrink:0}
+.cert-name{font-size:13px;font-weight:600;color:var(--ink)}
+.cert-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.lang-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.lang-flag{font-size:28px;margin-bottom:8px}
+.lang-name{font-size:14px;font-weight:700;color:var(--ink)}
+.lang-level{font-size:11px;color:var(--muted);margin-top:3px}
+.lang-bar{height:3px;border-radius:2px;background:var(--border);margin-top:10px;overflow:hidden}
+.lang-fill{height:100%;border-radius:2px;background:var(--blue)}
+
+/* CONTACT */
+.contact-dark{background:var(--ink);padding:80px 32px}
+.contact-dark .s-eyebrow{color:#60A5FA}
+.contact-dark .s-title{color:#fff}
+.contact-dark .s-desc{color:#94A3B8}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.contact-fields{display:flex;flex-direction:column;gap:12px}
+.cf-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px 20px}
+.cf-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#60A5FA;margin-bottom:6px}
+.cf-val{font-size:14px;color:#E2E8F0;font-weight:500}
+.cf-val a{color:#93C5FD;text-decoration:none}
+.cta-block{background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.3);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:16px}
+.cta-head{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#fff;line-height:1.2}
+.cta-desc{font-size:13px;color:#94A3B8;line-height:1.7}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;font-size:13px;font-weight:600;padding:12px 22px;border-radius:10px;text-decoration:none;width:fit-content}
+
+footer{background:var(--ink2);padding:20px 32px;text-align:center;font-size:11px;color:#4B5675}
+
+@media(max-width:800px){
+.hero-i,.about-wrap,.cols2,.cols3,.social-section-grid,.contact-grid{grid-template-columns:1fr}
+.hero-left{padding:48px 0;border-right:none;border-bottom:1px solid var(--border)}
+.hero-right{padding:32px 0}
+.exp-item{grid-template-columns:1fr}
+.exp-left{text-align:left;padding:0 0 8px 44px}
+.s-title{font-size:28px}
+.hero-name{font-size:36px}
+}
+</style>
+
+<nav>
+  <div class="nav-i">
+    <div class="nav-brand">Sankalpa Baral</div>
+    <div class="nav-r">
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#experience">Experience</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#skills">Skills</a>
+      <a class="nav-link" href="#connect">Connect</a>
+      <a class="nav-cta" href="mailto:sankalpabaral100@gmail.com">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-i">
+    <div class="hero-left">
+      <div class="status-pill"><div class="status-dot"></div>Open to opportunities</div>
+      <h1 class="hero-name">Sankalpa<br>Baral</h1>
+      <div class="hero-title">Associate Program Manager · Governance & Research</div>
+      <p class="hero-desc">Cross-sector professional bridging program management, public policy research, and stakeholder engagement across Nepal's governance and financial institutions. Currently leading program delivery at Pokhara Research Centre.</p>
+      <div class="hero-socials">
+        <a class="social-btn" href="https://www.linkedin.com/in/sankalpa-baral-7110011a7/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="social-btn" href="mailto:sankalpabaral100@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+        <a class="social-btn" href="tel:+9779864891854">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +977 9864891854
+        </a>
+        <a class="social-btn" href="https://www.linkedin.com/in/sankalpa-baral-7110011a7/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          Pokhara, Nepal
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">7+</span><span class="stat-label">Years experience</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">Sectors covered</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">Languages</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="photo-frame">
+        <div class="photo-initials">SB</div>
+        <div class="photo-label">UPLOAD YOUR PHOTO</div>
+      </div>
+      <div class="photo-note">Replace the initials with your professional headshot — recommended size 400×400px, square crop</div>
+      <div class="info-card">
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          <span>Role &nbsp;<span class="info-val">Assoc. Program Manager</span></span>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Org &nbsp;<span class="info-val">Pokhara Research Centre</span></span>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Base &nbsp;<span class="info-val">Pokhara, Nepal</span></span>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Since &nbsp;<span class="info-val">Dec 2025 (current)</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section alt" id="about">
+  <div class="wrap">
+    <div class="s-eyebrow">Profile</div>
+    <h2 class="s-title">About me</h2>
+    <p class="s-desc">A practitioner at the intersection of governance research, program delivery, and cross-sector coordination.</p>
+    <div class="about-wrap">
+      <div class="about-text">
+        <h3>Executive Summary</h3>
+        <p>Results-oriented professional with 7+ years of experience across governance research, program management, banking operations, and hospitality leadership. Currently serving as Associate Program Manager at Pokhara Research Centre, driving program delivery and stakeholder communication for public policy initiatives across Nepal's Gandaki Province. My career reflects a consistent ability to operate at the intersection of institutions — translating strategic intent into operational outcomes across the public, private, and research sectors.</p>
+        <h3>Leadership Philosophy</h3>
+        <div class="philosophy-block">
+          <p>"Effective coordination is 20% strategy and 80% consistent follow-through. I build systems that reduce dependence on individual heroics — embedding accountability, clarity, and communication into every process I manage."</p>
+        </div>
+      </div>
+      <div class="expertise-wrap">
+        <h3>Areas of expertise</h3>
+        <div class="exp-tags">
+          <span class="etag">Program Coordination</span>
+          <span class="etag">Governance & Policy</span>
+          <span class="etag">Stakeholder Relations</span>
+          <span class="etag">Research Support</span>
+          <span class="etag">Operations Management</span>
+          <span class="etag">Team Leadership</span>
+          <span class="etag">Banking Operations</span>
+          <span class="etag">Client Relations</span>
+          <span class="etag">Administrative Systems</span>
+          <span class="etag">Training Design</span>
+          <span class="etag">Event Coordination</span>
+          <span class="etag">Report Writing</span>
+          <span class="etag">Cross-sector Collaboration</span>
+          <span class="etag">Process Improvement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section" id="experience">
+  <div class="wrap">
+    <div class="s-eyebrow">Career history</div>
+    <h2 class="s-title">Professional experience</h2>
+    <p class="s-desc">Seven years across research institutions, financial services, and hospitality — always in coordination-heavy, stakeholder-facing roles.</p>
+    <div class="exp-timeline">
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-period-text">DEC 2025 – PRESENT</div>
+          <div class="exp-org-text">Pokhara Research Centre</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-dot"></div>
+          <div class="exp-role-title">Associate Program Manager</div>
+          <ul class="exp-blist">
+            <li>Lead end-to-end delivery of governance and public policy research programs, coordinating across research teams, government partners, and civil society stakeholders.</li>
+            <li>Design and execute communication strategies that translate research outputs into policy briefs, stakeholder reports, and public-facing materials.</li>
+            <li>Manage program timelines, resource allocation, and reporting cycles to ensure on-schedule, within-scope delivery of multiple concurrent initiatives.</li>
+            <li>Serve as primary liaison between research leadership and external institutional partners across the Gandaki Province.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-period-text">SEP – DEC 2025</div>
+          <div class="exp-org-text">Pokhara Research Centre</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-dot"></div>
+          <div class="exp-role-title">Program & Communication Assistant</div>
+          <ul class="exp-blist">
+            <li>Supported senior researchers with program documentation, meeting facilitation, and stakeholder correspondence.</li>
+            <li>Coordinated logistics for research workshops and policy dialogues, managing end-to-end event execution and post-event reporting.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-period-text">SEP 2022 – PRESENT</div>
+          <div class="exp-org-text">National Banking Institute Ltd.</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-dot"></div>
+          <div class="exp-role-title">Area Program Representative</div>
+          <ul class="exp-blist">
+            <li>Sole regional coordinator for NBI's professional development programs across the Gandaki Province over 3+ consecutive years.</li>
+            <li>Manage relationships with banking institution HR teams, branch managers, and regulatory contacts to drive training enrollment.</li>
+            <li>Deliver program briefings and orientation sessions, tracking outcomes and submitting structured reports to NBI central teams.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-period-text">JAN – MAR 2025</div>
+          <div class="exp-org-text">Rastriya Banijya Bank</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-dot"></div>
+          <div class="exp-role-title">Banking Intern</div>
+          <ul class="exp-blist">
+            <li>Managed customer service functions including account onboarding, KYC documentation, and inquiry resolution in a high-volume public bank.</li>
+            <li>Processed Electronic Cheque Clearing (ECC) transactions with full accuracy and compliance across daily reconciliation tasks.</li>
+            <li>Developed applied knowledge of Nepal's banking regulatory environment and internal compliance procedures.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-period-text">SEP 2022 – OCT 2024</div>
+          <div class="exp-org-text">Hotel Monal</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-dot"></div>
+          <div class="exp-role-title">Assistant Hotel Manager</div>
+          <ul class="exp-blist">
+            <li>Supervised multi-department hotel operations — front office, housekeeping, F&B, and maintenance — managing a team of 15+ staff.</li>
+            <li>Introduced service SOPs that measurably reduced complaint rates and improved guest satisfaction during peak seasons.</li>
+            <li>Designed and delivered onboarding and training programs for new hires, building a consistent service culture across the property.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-period-text">APR 2019 – AUG 2022</div>
+          <div class="exp-org-text">Hotel Monal</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-dot" style="background:var(--muted)"></div>
+          <div class="exp-role-title" style="color:var(--mid)">Administrative Assistant & Front Desk Officer</div>
+          <ul class="exp-blist">
+            <li>Managed front office operations, reservations, and guest relations with high service standards for domestic and international guests.</li>
+            <li>Provided administrative support — scheduling, record-keeping, inter-departmental coordination — to the hotel management team.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="section alt" id="projects">
+  <div class="wrap">
+    <div class="s-eyebrow">Work highlights</div>
+    <h2 class="s-title">Key projects</h2>
+    <p class="s-desc">End-to-end program management, research coordination, and institutional engagement initiatives.</p>
+    <div class="cols2">
+      <div class="proj-card">
+        <div class="proj-badge-row"><span class="pbadge">Policy</span><span class="pbadge">Research</span><span class="pbadge">Communication</span></div>
+        <h3>Governance Research Program — Pokhara Research Centre</h3>
+        <div class="proj-divider"></div>
+        <div class="proj-field"><span class="pf-label">Objective</span><span class="pf-val">Support research on local governance, public service delivery, and policy formulation in Gandaki Province.</span></div>
+        <div class="proj-field"><span class="pf-label">Role</span><span class="pf-val">Lead program coordinator — planning, stakeholder engagement, and reporting.</span></div>
+        <div class="proj-field"><span class="pf-label">Outcomes</span><span class="pf-val">Multiple research outputs and policy briefs delivered; stakeholder dialogues facilitated with government officials, civil society, and academia.</span></div>
+        <div class="proj-field"><span class="pf-label">Key learning</span><span class="pf-val">Research impact requires deliberate communication design — translating findings for non-academic stakeholders is a discipline of its own.</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-badge-row"><span class="pbadge">Training</span><span class="pbadge">Banking</span><span class="pbadge">Outreach</span></div>
+        <h3>Regional Banking Training Outreach — National Banking Institute</h3>
+        <div class="proj-divider"></div>
+        <div class="proj-field"><span class="pf-label">Objective</span><span class="pf-val">Expand NBI's professional training reach across Gandaki Province banking institutions over a multi-year engagement.</span></div>
+        <div class="proj-field"><span class="pf-label">Role</span><span class="pf-val">Sole regional coordinator — relationship management, promotion, enrollment, and reporting.</span></div>
+        <div class="proj-field"><span class="pf-label">Outcomes</span><span class="pf-val">Maintained active regional presence for 3+ consecutive years across multiple banking institutions and districts.</span></div>
+        <div class="proj-field"><span class="pf-label">Key learning</span><span class="pf-val">Sustained outreach demands adaptive strategies tuned to institutional cycles and relationship depth.</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-badge-row"><span class="pbadge">Operations</span><span class="pbadge">Team Leadership</span><span class="pbadge">Service Design</span></div>
+        <h3>Hospitality Operations Restructure — Hotel Monal</h3>
+        <div class="proj-divider"></div>
+        <div class="proj-field"><span class="pf-label">Objective</span><span class="pf-val">Systematize hotel operations to reduce service inconsistencies and improve guest satisfaction during high-occupancy periods.</span></div>
+        <div class="proj-field"><span class="pf-label">Role</span><span class="pf-val">Assistant Hotel Manager — operational lead, SOP design, and training.</span></div>
+        <div class="proj-field"><span class="pf-label">Outcomes</span><span class="pf-val">Reduced inter-departmental friction and service inconsistencies through structured onboarding and SOP implementation.</span></div>
+        <div class="proj-field"><span class="pf-label">Key learning</span><span class="pf-val">Operational excellence is a systems design problem — the right processes remove dependence on heroic individual effort.</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-badge-row"><span class="pbadge">Banking</span><span class="pbadge">Compliance</span><span class="pbadge">Administration</span></div>
+        <h3>Banking Operations Immersion — Rastriya Banijya Bank</h3>
+        <div class="proj-divider"></div>
+        <div class="proj-field"><span class="pf-label">Objective</span><span class="pf-val">Gain direct exposure to public sector banking operations, customer service systems, and regulatory compliance.</span></div>
+        <div class="proj-field"><span class="pf-label">Role</span><span class="pf-val">Intern — rotational across customer service and operations desks.</span></div>
+        <div class="proj-field"><span class="pf-label">Outcomes</span><span class="pf-val">Applied knowledge of KYC protocols, ECC systems, and Nepal's public banking regulatory framework in a high-volume branch context.</span></div>
+        <div class="proj-field"><span class="pf-label">Key learning</span><span class="pf-val">Operational compliance in banking is non-negotiable — accuracy and process discipline are the foundation of institutional trust.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LEADERSHIP -->
+<div class="section" id="leadership">
+  <div class="wrap">
+    <div class="s-eyebrow">Management profile</div>
+    <h2 class="s-title">Leadership & management</h2>
+    <p class="s-desc">Core competencies demonstrated across research, banking, and hospitality environments.</p>
+    <div class="cols3">
+      <div class="lead-card"><div class="lc-icon-wrap"><i class="ti ti-target" aria-hidden="true" style="font-size:20px;color:#2563EB"></i></div><div class="lc-title">Program Management</div><div class="lc-desc">Multi-stakeholder programs from design to reporting — managing timelines, deliverables, and partner expectations across research and training contexts.</div></div>
+      <div class="lead-card"><div class="lc-icon-wrap"><i class="ti ti-users" aria-hidden="true" style="font-size:20px;color:#2563EB"></i></div><div class="lc-title">Stakeholder Engagement</div><div class="lc-desc">Managed relationships with government bodies, academic institutions, and banking organizations — translating complex agendas into shared action.</div></div>
+      <div class="lead-card"><div class="lc-icon-wrap"><i class="ti ti-layout-grid" aria-hidden="true" style="font-size:20px;color:#2563EB"></i></div><div class="lc-title">Team Coordination</div><div class="lc-desc">Supervised and developed teams of 15+ in high-pressure hospitality settings; coordinated cross-functional research and administrative teams.</div></div>
+      <div class="lead-card"><div class="lc-icon-wrap"><i class="ti ti-settings" aria-hidden="true" style="font-size:20px;color:#2563EB"></i></div><div class="lc-title">Operations Management</div><div class="lc-desc">End-to-end operational oversight across front office, F&B, and housekeeping; implemented SOPs that improved consistency and reduced friction.</div></div>
+      <div class="lead-card"><div class="lc-icon-wrap"><i class="ti ti-file-text" aria-hidden="true" style="font-size:20px;color:#2563EB"></i></div><div class="lc-title">Reporting & Communication</div><div class="lc-desc">Policy briefs, event reports, stakeholder correspondence, and program documentation — adapted to research, banking, and hospitality audiences.</div></div>
+      <div class="lead-card"><div class="lc-icon-wrap"><i class="ti ti-calendar-event" aria-hidden="true" style="font-size:20px;color:#2563EB"></i></div><div class="lc-title">Event Management</div><div class="lc-desc">Workshops, policy dialogues, and stakeholder forums — end-to-end logistics, speaker coordination, and post-event reporting and documentation.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="section alt" id="skills">
+  <div class="wrap">
+    <div class="s-eyebrow">Competencies</div>
+    <h2 class="s-title">Skills</h2>
+    <p class="s-desc">Structured view of professional capabilities across management, research, and digital domains.</p>
+    <div class="cols3">
+      <div class="skill-group">
+        <div class="sg-head"><div class="sg-icon"><i class="ti ti-chart-bar" aria-hidden="true"></i></div><div class="sg-title">Management</div></div>
+        <div class="sk-items">
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Program Management</span><span class="sk-pct">90%</span></div><div class="sk-bar"><div class="sk-fill" style="width:90%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Team Leadership</span><span class="sk-pct">85%</span></div><div class="sk-bar"><div class="sk-fill" style="width:85%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Operations</span><span class="sk-pct">88%</span></div><div class="sk-bar"><div class="sk-fill" style="width:88%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Project Planning</span><span class="sk-pct">82%</span></div><div class="sk-bar"><div class="sk-fill" style="width:82%"></div></div></div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-head"><div class="sg-icon"><i class="ti ti-search" aria-hidden="true"></i></div><div class="sg-title">Research & Policy</div></div>
+        <div class="sk-items">
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Research Coordination</span><span class="sk-pct">80%</span></div><div class="sk-bar"><div class="sk-fill" style="width:80%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Report Writing</span><span class="sk-pct">85%</span></div><div class="sk-bar"><div class="sk-fill" style="width:85%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Policy Analysis</span><span class="sk-pct">72%</span></div><div class="sk-bar"><div class="sk-fill" style="width:72%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Data Collection</span><span class="sk-pct">75%</span></div><div class="sk-bar"><div class="sk-fill" style="width:75%"></div></div></div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-head"><div class="sg-icon"><i class="ti ti-message" aria-hidden="true"></i></div><div class="sg-title">Communication</div></div>
+        <div class="sk-items">
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Stakeholder Liaison</span><span class="sk-pct">90%</span></div><div class="sk-bar"><div class="sk-fill" style="width:90%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Client Relations</span><span class="sk-pct">92%</span></div><div class="sk-bar"><div class="sk-fill" style="width:92%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Professional Writing</span><span class="sk-pct">88%</span></div><div class="sk-bar"><div class="sk-fill" style="width:88%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Presentation</span><span class="sk-pct">80%</span></div><div class="sk-bar"><div class="sk-fill" style="width:80%"></div></div></div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-head"><div class="sg-icon"><i class="ti ti-folders" aria-hidden="true"></i></div><div class="sg-title">Administration</div></div>
+        <div class="sk-items">
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Record Management</span><span class="sk-pct">88%</span></div><div class="sk-bar"><div class="sk-fill" style="width:88%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Event Coordination</span><span class="sk-pct">84%</span></div><div class="sk-bar"><div class="sk-fill" style="width:84%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Scheduling & Planning</span><span class="sk-pct">86%</span></div><div class="sk-bar"><div class="sk-fill" style="width:86%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Compliance Support</span><span class="sk-pct">75%</span></div><div class="sk-bar"><div class="sk-fill" style="width:75%"></div></div></div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-head"><div class="sg-icon"><i class="ti ti-credit-card" aria-hidden="true"></i></div><div class="sg-title">Banking & Finance</div></div>
+        <div class="sk-items">
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Customer Service</span><span class="sk-pct">88%</span></div><div class="sk-bar"><div class="sk-fill" style="width:88%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">KYC / Compliance</span><span class="sk-pct">72%</span></div><div class="sk-bar"><div class="sk-fill" style="width:72%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">ECC Operations</span><span class="sk-pct">68%</span></div><div class="sk-bar"><div class="sk-fill" style="width:68%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Account Management</span><span class="sk-pct">70%</span></div><div class="sk-bar"><div class="sk-fill" style="width:70%"></div></div></div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-head"><div class="sg-icon"><i class="ti ti-device-laptop" aria-hidden="true"></i></div><div class="sg-title">Digital & Tools</div></div>
+        <div class="sk-items">
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">MS Office Suite</span><span class="sk-pct">85%</span></div><div class="sk-bar"><div class="sk-fill" style="width:85%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Google Workspace</span><span class="sk-pct">82%</span></div><div class="sk-bar"><div class="sk-fill" style="width:82%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Digital Communication</span><span class="sk-pct">80%</span></div><div class="sk-bar"><div class="sk-fill" style="width:80%"></div></div></div>
+          <div class="sk-item"><div class="sk-top"><span class="sk-name">Data Entry & Analysis</span><span class="sk-pct">74%</span></div><div class="sk-bar"><div class="sk-fill" style="width:74%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="section" id="education">
+  <div class="wrap">
+    <div class="s-eyebrow">Academic background</div>
+    <h2 class="s-title">Education</h2>
+    <p class="s-desc">Formal qualifications in economics and business administration from Nepal's leading public universities.</p>
+    <div class="cols3">
+      <div class="edu-card"><div class="edu-icon">🎓</div><div><div class="edu-deg">Master of Arts — Economics</div><div class="edu-uni">Tribhuvan University</div><div class="edu-year">Expected Jan 2026</div></div></div>
+      <div class="edu-card"><div class="edu-icon">📚</div><div><div class="edu-deg">BBA — Business Administration</div><div class="edu-uni">School of Management, TU</div><div class="edu-year">Jan 2020 – Jul 2025</div></div></div>
+      <div class="edu-card"><div class="edu-icon">🏫</div><div><div class="edu-deg">Higher Secondary (+2)</div><div class="edu-uni">Janapriya Higher Secondary School</div><div class="edu-year">2017 – 2021</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div class="section alt">
+  <div class="wrap">
+    <div class="s-eyebrow">Credentials</div>
+    <h2 class="s-title">Certifications</h2>
+    <div style="max-width:520px;display:flex;flex-direction:column;gap:10px">
+      <div class="cert-item"><div class="cert-badge"><i class="ti ti-certificate" aria-hidden="true"></i></div><div><div class="cert-name">Business Analysis & Process Management</div><div class="cert-sub">Professional Certification · Verified</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- LANGUAGES -->
+<div class="section">
+  <div class="wrap">
+    <div class="s-eyebrow">Languages</div>
+    <h2 class="s-title">Languages spoken</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:480px">
+      <div class="lang-card"><div class="lang-flag">🇳🇵</div><div class="lang-name">Nepali</div><div class="lang-level">Native / Bilingual</div><div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div></div>
+      <div class="lang-card"><div class="lang-flag">🇬🇧</div><div class="lang-name">English</div><div class="lang-level">Professional Working</div><div class="lang-bar"><div class="lang-fill" style="width:80%"></div></div></div>
+      <div class="lang-card"><div class="lang-flag">🇮🇳</div><div class="lang-name">Hindi</div><div class="lang-level">Professional Working</div><div class="lang-bar"><div class="lang-fill" style="width:78%"></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL MEDIA -->
+<div class="section alt" id="connect">
+  <div class="wrap">
+    <div class="s-eyebrow">Online presence</div>
+    <h2 class="s-title">Connect & follow</h2>
+    <p class="s-desc">Find me across professional networks and platforms. LinkedIn is the best place to connect for opportunities and collaborations.</p>
+    <div class="social-section-grid">
+      <a class="soc-card" href="https://www.linkedin.com/in/sankalpa-baral-7110011a7/" target="_blank">
+        <div class="soc-icon-wrap" style="background:#E8F0FE"><svg width="28" height="28" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+        <div class="soc-platform">LinkedIn</div>
+        <div class="soc-handle">sankalpa-baral-7110011a7</div>
+        <div class="soc-action">View profile →</div>
+      </a>
+      <a class="soc-card" href="mailto:sankalpabaral100@gmail.com">
+        <div class="soc-icon-wrap" style="background:#FEE8E6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
+        <div class="soc-platform">Gmail</div>
+        <div class="soc-handle">sankalpabaral100@gmail.com</div>
+        <div class="soc-action">Send email →</div>
+      </a>
+      <a class="soc-card" href="tel:+9779864891854">
+        <div class="soc-icon-wrap" style="background:#E8F5E9"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div class="soc-platform">Phone / WhatsApp</div>
+        <div class="soc-handle">+977 9864891854</div>
+        <div class="soc-action">Call or WhatsApp →</div>
+      </a>
+      <a class="soc-card" href="https://www.linkedin.com/in/sankalpa-baral-7110011a7/" target="_blank">
+        <div class="soc-icon-wrap" style="background:#FFF3E0"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F57C00" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="soc-platform">Location</div>
+        <div class="soc-handle">Ratnachowk-07, Pokhara, Nepal</div>
+        <div class="soc-action">Gandakī Province →</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT CTA -->
+<div class="contact-dark" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="s-eyebrow">Get in touch</div>
+        <h2 class="s-title" style="color:#fff;margin-bottom:8px">Let's work together</h2>
+        <p class="s-desc" style="margin-bottom:0">Open to program management, policy coordination, research support, and organizational leadership roles across Nepal and internationally — including UN agencies, development organizations, NGOs, and government programs.</p>
+      </div>
+      <div class="cta-block">
+        <div class="cta-head">Ready to connect?</div>
+        <div class="cta-desc">Whether you have an opportunity, a collaboration in mind, or just want to connect — reach out via email or LinkedIn. Response time is typically within 24 hours.</div>
+        <a class="cta-btn" href="mailto:sankalpabaral100@gmail.com">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Send an email
+        </a>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
+          <div class="cf-card"><div class="cf-label">Email</div><div class="cf-val"><a href="mailto:sankalpabaral100@gmail.com">sankalpabaral100@gmail.com</a></div></div>
+          <div class="cf-card"><div class="cf-label">LinkedIn</div><div class="cf-val"><a href="https://www.linkedin.com/in/sankalpa-baral-7110011a7/" target="_blank">linkedin.com/in/sankalpa-baral</a></div></div>
+          <div class="cf-card"><div class="cf-label">Phone</div><div class="cf-val">+977 9864891854</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>© 2025 Sankalpa Baral · Pokhara, Nepal · All rights reserved</footer>
