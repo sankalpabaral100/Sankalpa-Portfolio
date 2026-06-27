@@ -195,22 +195,13 @@ nav{
 .soc svg{width:12px;height:12px;flex-shrink:0}
 .soc:hover{border-color:var(--blue-light);color:var(--blue-light);background:rgba(59,130,246,.1)}
 
-/* hero photo box */
-.hero-photo-box{
-  width:min(320px,80%);
-  background:linear-gradient(160deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,.03) 100%);
-  border:1px solid rgba(255,255,255,.12);
-  border-bottom:none;border-radius:16px 16px 0 0;
-  overflow:hidden;
-  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
-  min-height:340px;position:relative;
-}
-.hero-photo-box img{width:100%;height:100%;object-fit:contain;object-position:center bottom}
+/* New Full Screen Right Photo Styling */
 .hero-right {
   position: relative;
   z-index: 2;
   padding: 0;
   overflow: hidden;
+  display: block;
 }
 
 .hero-full-img {
@@ -218,12 +209,7 @@ nav{
   height: 100%;
   object-fit: cover;
   object-position: center top;
-}
-}
-.photo-hint{
-  position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);
-  font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(255,255,255,.2);white-space:nowrap;
+  display: block;
 }
 
 /* hero stats strip */
@@ -253,7 +239,7 @@ nav{
 }
 .ticker-item{
   font-size:.65rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(255,255,255,.7);padding:0 2rem;
+  color:rgba(255,255,255,.7);:0 2rem;
 }
 .ticker-item.accent{color:#fff}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -261,7 +247,7 @@ nav{
 /* ══════════════════════════════
    SHARED SECTION STYLES
 ══════════════════════════════ */
-.section{padding:6rem 2rem}
+.section{:6rem 2rem}
 .section.alt{background:var(--off)}
 .container{max-width:1200px;margin:0 auto}
 .section-label{
@@ -285,7 +271,7 @@ nav{
 .about-text p strong{color:var(--navy);font-weight:700}
 .philosophy{
   background:var(--blue-soft);border-left:3px solid var(--blue);
-  border-radius:0 10px 10px 0;padding:1.25rem 1.5rem;margin:1.75rem 0;
+  border-radius:0 10px 10px 0;:1.25rem 1.5rem;margin:1.75rem 0;
 }
 .philosophy p{font-style:italic;color:var(--blue-dark);font-size:.95rem;line-height:1.75;margin:0}
 .expertise-title{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:.9rem}
@@ -562,9 +548,7 @@ footer{
     padding:5rem 2rem 3rem;max-width:100%;
     background:var(--navy);
   }
-  .hero-right{
-    padding:0 2rem 0;background:var(--blue-dark);
-    align-items:center;
+  .hero-right{padding:0;background:var(--blue-dark);min-height:450px;}
   }
   .hero-photo-box{width:min(260px,70%);min-height:260px}
   .hero-stats{position:static;margin-top:0}
@@ -766,7 +750,7 @@ footer{
       <img src="your-photo.jpg" alt="Sankalpa Baral" class="hero-photo"/>
       Recommended: 600×800px, professional headshot.
     -->
- <img src="your-photo-name.jpg" alt="Sankalpa Baral" class="hero-full-img">
+ <img src="SankalpaBaral.jpg" alt="Sankalpa Baral" class="hero-full-img">
 </div>
       <div class="hero-initials"></div>
       <div class="photo-hint">Add photo · replace with &lt;img&gt;</div>
