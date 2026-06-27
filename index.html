@@ -206,11 +206,19 @@ nav{
   min-height:340px;position:relative;
 }
 .hero-photo-box img{width:100%;height:100%;object-fit:contain;object-position:center bottom}
-.hero-initials{
-  font-family:'Playfair Display',serif;font-style:italic;
-  font-size:8rem;color:rgba(255,255,255,.1);
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);
-  pointer-events:none;user-select:none;
+.hero-right {
+  position: relative;
+  z-index: 2;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero-full-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
 }
 .photo-hint{
   position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);
@@ -758,7 +766,8 @@ footer{
       <img src="your-photo.jpg" alt="Sankalpa Baral" class="hero-photo"/>
       Recommended: 600×800px, professional headshot.
     -->
-    <img src="SankalpaBaral.jpg" alt="Sankalpa Baral">
+ <img src="your-photo-name.jpg" alt="Sankalpa Baral" class="hero-full-img">
+</div>
       <div class="hero-initials"></div>
       <div class="photo-hint">Add photo · replace with &lt;img&gt;</div>
     </div>
